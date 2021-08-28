@@ -1,0 +1,12 @@
+[
+    {
+        "ktm-account": {
+            "username": "username",
+            "password": "password"
+        },
+        "telegram": {
+            "bot-token": "BOT-TOKEN",
+            "chat_id": -1234567890
+        }
+    }
+]
