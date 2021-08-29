@@ -91,4 +91,4 @@ class Database:
         finally:
             if connection:
                 connection.close()
-        return dict(lastRow)
+        return dict(lastRow) if lastRow is not None else False
