@@ -1,5 +1,6 @@
 import os
 import sqlite3
+from datetime import datetime
 
 class Database:
 
@@ -41,7 +42,7 @@ class Database:
             insert into "history" (
                 "DateTime", "Balance", "Cost", "Message", "Rate", "Speed"
             ) values (
-                datetime(), {data["balance"]}, {data["cost"]}, "{data["message_end"]}", "{data["rate"]}", "{data["speed"]}"
+                "{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}", {data["balance"]}, {data["cost"]}, "{data["message_end"]}", "{data["rate"]}", "{data["speed"]}"
             );
         """
         cursor.execute(query)
