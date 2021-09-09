@@ -13,10 +13,11 @@ for item in Config(__file__, "config.json").read():
     db = DB(item["sqlite"])
     lastRow = db.getLastHistoryRow()
 
-    if lastRow and compareDateToday(lastRow["datetime"]):
+    overview = KTM(item["ktm-account"]).getOverview()
+
+    if overview["balance"] == lastRow["balance"]:
         continue
 
-    overview = KTM(item["ktm-account"]).getOverview()
     db.insert(overview)
 
     overviewCopy = overview.copy()
