@@ -45,7 +45,7 @@ class KTM:
         # balance
         try:
             overview['balance'] = self.driver.execute_script(f'''
-                var $el = document.querySelector("#main-content > div.row > div:nth-child(3) > div:nth-child(1) > div.card-body > table > tbody > tr:nth-child(4) > td:nth-child(2)")
+                var $el = document.querySelector("#main-content > div.row > div:nth-child(4) > div > div.card-body.p-2 > table > tbody > tr:nth-child(2) > td:nth-child(2) > div > div:nth-child(1)")
                 var balance = parseFloat($el.textContent.trim())
                 return isNaN(balance) ? null : balance;
             ''')
@@ -54,7 +54,7 @@ class KTM:
         # rate, message_end, cost, mac, speed
         try:
             items = self.driver.execute_script('''
-                var $el = document.querySelector("#main-content > div.card.card-secondary > div.card-body")
+                var $el = document.querySelector("#main-content > div.card.card-primary.card-outline > div.card-body")
                 var items = $el.innerText.split("\\n")
                 return {
                     rate: items[0],
