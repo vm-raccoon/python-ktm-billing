@@ -45,7 +45,7 @@ class KTM:
         # balance
         try:
             overview['balance'] = self.driver.execute_script(f'''
-                var $el = document.querySelector("#main-content > div.row > div:nth-child(4) > div > div.card-body.p-2 > table > tbody > tr:nth-child(2) > td:nth-child(2) > div > div:nth-child(1)")
+                var $el = document.querySelector("#deposit")
                 var balance = parseFloat($el.textContent.trim())
                 return isNaN(balance) ? null : balance;
             ''')
@@ -59,9 +59,9 @@ class KTM:
                 return {
                     rate: items[0],
                     message_end: items[1],
-                    cost: parseFloat(items[8].split("\\t")[1]),
-                    mac: items[12].split("\\t")[1],
-                    speed: items[13],
+                    cost: parseFloat(items[9].split("\\t")[1]),
+                    mac: items[13].split("\\t")[1],
+                    speed: items[8].split("\\t")[1],
                 }
             ''')
             for k in items:
