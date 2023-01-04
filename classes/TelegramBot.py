@@ -11,7 +11,7 @@ class TelegramBot:
             self.bot.send_message(chatID, "\n".join([
                 "<b>{}</b>".format(overview["username"]),
                 "\U0001F4B5 <b>{:.2f}</b> грн ({:.2f} грн)".format(overview["balance"], -overview["diff"]),
-                "\U0001F4F6 {} {}, {} грн".format(overview["rate"], overview["speed"], overview["cost"]),
+                "\U0001F4F6 {} {} Mbps, {} грн".format(overview["rate"], overview["speed"], overview["cost"]),
                 "{}".format(overview["message_end"]),
             ]))
             return True
